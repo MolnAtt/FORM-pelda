@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <!--
+       HTML komment
+    -->
+
+    <script src="{% static 'js/script.js' %}"></script>
+
+    {# ez egy django komment #}
+
+    {% comment %}
+    hello
+    {% endcomment %}
+    
+</head>
+<body>
+    <h1>Helló</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="kedvencszo" id="">
+        <input type="password" name="jelszo" id="">
+        <input type="number" name="szam" id="">
+        <input type="number" name="szam" id="">
+        <textarea name="" id="" cols="30" rows="10">Ez egy hosszú szöveg</textarea>
+        <select name="valasztas" id="">
+            <option value="elso1">első választás 1</option>
+            <option value="elso2">első választás 2</option>
+            <option value="elso3">első választás 3</option>
+        </select>
+        <input type="checkbox" name="csekkboksz" id="">
+        <button type="submit">Küld</button>
+    </form>
+
+    
+    <ul>
+
+        {% for kerdes in kerdesek %}
+        <li>{{kerdes.kerdes}}</li>
+        {% endfor %}
+    </ul>
+        
+</body>
+
+</html>
